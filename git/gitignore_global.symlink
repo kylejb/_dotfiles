@@ -535,8 +535,6 @@ private.*
 ## Custom Dotenv Folder
 .dotfiles.git
 .dotfiles
-.cfg.git
-.cfg
 
 
 ###############

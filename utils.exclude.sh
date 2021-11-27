@@ -19,9 +19,9 @@ execute_func_with_prompt() {
     echo_with_prompt "This utility will $2"
     echo_with_prompt "Proceed? (y/n)"
     read resp
-    # TODO - regex here?
+    # TODO: Replace with regex?
     if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
-    # This thing here "calls" the function
+    # This "calls" the function
     "$1" || return 2
         echo_with_prompt "$2 complete"
     else

@@ -1,0 +1,73 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, debian-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Prettier
+        run: brew install prettier
+      - name: Check web code formatting with Prettier
+        run: prettier --check .
+      - name: Install shfmt (https://github.com/mvdan/sh)
+        run: brew install shfmt
+      - name: Check shell script formatting with shfmt
+        run: shfmt -d -i 2 .
+      - name: Install ShellCheck (https://github.com/koalaman/shellcheck) on macOS
+        if: startsWith(runner.os, 'macOS')
+        run: brew install bash shellcheck
+      - name: Check shell script formatting with ShellCheck
+        run: |
+          shopt -s globstar nullglob
+          set -- script/* **/*.{sh,bash,ksh}
+          if [ -n "$1" ]; then
+            echo "Checking $@"
+            shellcheck "$@"
+          else
+            echo "No shell scripts for ShellCheck to check."
+          fi
+        shell: bash
+        env:
+          SHELLCHECK_OPTS: -e SC1071 -e SC1090 -e SC1091
+  test:
+    if: github.event_name != 'push'
+    needs: [lint]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, debian-latest, ubuntu-latest]
+    timeout-minutes: 60
+    env:
+      STRAP_CI: 1
+      STRAP_DEBUG: 1
+      STRAP_GIT_EMAIL: { { STRAP_GIT_EMAIL } }
+      STRAP_GIT_NAME: GitHub Actions
+      STRAP_GITHUB_USER: { { STRAP_GITHUB_USER } }
+    steps:
+      - uses: actions/checkout@v2
+      - name: Clean up Homebrew
+        run: |
+          command -v brew &>/dev/null && brew test-bot --only-cleanup-before ||
+            echo "Homebrew not found."
+      - name: Clean up macOS
+        if: startsWith(runner.os, 'macOS')
+        run: |
+          sudo rm -rf /usr/local/Caskroom /usr/local/Homebrew /usr/local/bin/brew \
+            /usr/local/.??* /Applications/Xcode.app /Library/Developer/CommandLineTools
+      - name: Run bootstrap.sh
+        run: bash bootstrap.sh
+      - name: Rerun bootstrap.sh to test idempotence
+        run: bash bootstrap.sh
+      - name: Check Homebrew configuration
+        run: brew config
+      - name: Check for potential problems with brew doctor
+        run: brew doctor || echo "Potential problems detected. See output for details."

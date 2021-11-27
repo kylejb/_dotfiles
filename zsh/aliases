@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 
 ## General
 alias l='ls -lah'

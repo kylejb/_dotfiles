@@ -2,11 +2,10 @@
   "code-runner.enableAppInsights": false,
   "extensions.autoUpdate": false,
   "extensions.autoCheckUpdates": false,
-  "telemetry.enableCrashReporter": false,
-  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
   "update.mode": "start",
   "workbench.enableExperiments": false,
-  
+
   "bracket-pair-colorizer-2.forceUniqueOpeningColor": true,
   "bracket-pair-colorizer-2.highlightActiveScope": true,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -50,7 +49,7 @@
     "**/.hg": true,
     "**/node_modules": true,
     "**/__pycache__": true,
-    "**/.svn": true,
+    "**/.svn": true
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -87,16 +86,11 @@
   "python.linting.pylintEnabled": false,
   "python.poetryPath": "/Users/kylejb/.local/bin/poetry",
   "python.testing.nosetestsEnabled": false,
-  "python.testing.pytestArgs": [
-    ".",
-    "tests"
-  ],
+  "python.testing.pytestArgs": [".", "tests"],
   "python.testing.pytestEnabled": true,
   "python.testing.pytestPath": "/Users/kylejb/.local/bin/pytest",
   "python.testing.unittestEnabled": false,
-  "python.venvFolders": [
-    ".venv"
-  ],
+  "python.venvFolders": [".venv"],
   "scss.lint.boxModel": "warning",
   "scss.lint.compatibleVendorPrefixes": "warning",
   "scss.lint.duplicateProperties": "warning",
@@ -149,7 +143,7 @@
   "typescript.suggest.completeFunctionCalls": true,
   "nxConsole.enableTelemetry": false,
   "window.zoomLevel": 2,
-  "workbench.colorTheme": "One Monokai",
+  "workbench.colorTheme": "One Dark Pro",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter.notebook.ipynb",

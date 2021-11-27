@@ -1,0 +1,10 @@
+# Source this first since it contains the locations of directories needed by funcitons
+source "$HOME/.exports"
+source "$HOME/.functions"
+source "$HOME/.aliases"
+
+## Postgres
+# export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+
+## Enables local changes – must be last line
+[ -f ".zprofile.local" ] && source ".zprofile.local"

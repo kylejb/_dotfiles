@@ -1,9 +1,6 @@
 source .zprofile
 
 ## User Paths
-  # Append current location to Python Path
-  export PYTHONPATH=".:$PYTHONPATH"
-
   # Add pipx install location to User Path
   export HOME_PATHS="$HOME/.local/bin"
   # Build our final PATH by combining the variables defined above

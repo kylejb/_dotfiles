@@ -70,7 +70,23 @@ bootstrap_crontab() {
     "$( pwd )/crontab.bootstrap.exclude.sh"
 }
 
+
+
 # TODO: Improve bootstrap process
+# set -eux
+
+# SCRIPT_NAME=${1:-"install.sh"}
+# DOTFILES=$(cd $(dirname $0) && pwd)
+
+# echo -e "${SCRIPT_NAME} start: $(date)"
+
+# TODO: Incorporate installations for various OS contexts (e.g., codespaces, macOS, Linux, Windows)
+# set +u
+# if [ $CODESPACES ]; then
+#   echo -e "Updating container dependencies..."
+#   /bin/sh $DOTFILES/codespaces/apt.sh
+# fi
+# set -u
 init
 execute_func_with_prompt link "symlink everything"
 install_tools

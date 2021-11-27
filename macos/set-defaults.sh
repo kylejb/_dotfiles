@@ -1,6 +1,7 @@
 # Sets reasonable macOS defaults.
-# The original idea (and a couple settings) were grabbed from:
+# Many settings were grabbed from:
 #   https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+#   https://raw.githubusercontent.com/br3ndonland/dotfiles/main/script/macos.sh
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
