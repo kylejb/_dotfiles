@@ -16,21 +16,21 @@ format = """\
     $nodejs\
     $python\
     $rust\
-    $conda\
     $aws\
     $env_var\
-    $crystal\
     $line_break\
     $cmd_duration\
     $jobs\
-    $time\
     $character\
+    """
+right_format = """\
+    $time
     """
 
 [battery]
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
-full_symbol = "🔋"
+full_symbol = "🔌"
+charging_symbol = "⚡"
+discharging_symbol = "🔋"
 
 [[battery.display]]
 style = "bold red"
@@ -38,14 +38,9 @@ threshold = 10
 
 [[battery.display]]
 style = "bold yellow"
-threshold = 60
-
-[[battery.display]]
-style = "bold green"
-threshold = 100
+threshold = 40
 
 [character]
-# symbol = "➜"
 error_symbol = "✗"
 
 [cmd_duration]
@@ -53,7 +48,6 @@ format = "took [$duration]($style) "
 min_time = 500
 
 [directory]
-disabled = false
 format = "[$path]($style)[$read_only]($read_only_style) "
 style = "bold cyan"
 truncate_to_repo = true
@@ -66,7 +60,6 @@ truncation_length = 2
 
 [git_branch]
 # symbol = "🌱 "
-disabled = false
 style = "bold purple"
 truncation_length = 8
 truncation_symbol = "..."
@@ -75,8 +68,7 @@ truncation_symbol = "..."
 am = "AM"
 am_or_rebase = "AM/REBASE"
 bisect = "BISECTING"
-cherry_pick = "CHERRY PICKING"
-disabled = false
+cherry_pick = "🍒 PICKING"
 merge = "MERGING"
 rebase = "REBASING"
 revert = "REVERTING"
@@ -103,7 +95,6 @@ style = "bold yellow"
 [hostname]
 ssh_only = true
 # format = "⟫ "
-disabled = false
 trim_at = "."
 
 # [jobs]
@@ -114,7 +105,6 @@ trim_at = "."
 disabled = true
 
 # [memory_usage]
-# disabled = false
 # show_percentage = true
 # show_swap = false
 # threshold = -1
@@ -123,35 +113,22 @@ disabled = true
 # style = "bold dimmed white"
 
 [nodejs]
-disabled = false
 style = "bold green"
 symbol = "⬢ "
 
-# [package]
-# symbol = "📦 "
-# style = "bold red"
-# disabled = false
-
 [python]
-disabled = false
 pyenv_prefix = "pyenv"
 pyenv_version_name = false
 style = "bold yellow"
 symbol = "🐍 "
 
-# [time]
-# format = "🕙%T"
-# style_root = "bold red"
-# style_user = "bold yellow"
-# show_always = true
-# disabled = false
+[time]
+disabled = false
+style = "bold yellow"
+format="[$time]($style)"
+time_format = "%T"
 
 [username]
-disabled = false
 show_always = true
 style_root = "bold red"
 style_user = "bold yellow"
-
-# Disable the package module, hiding it from the prompt completely
-# [package]
-# disabled = true

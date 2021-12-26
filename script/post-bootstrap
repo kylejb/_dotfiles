@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 ### ----------------- Bootstrap post-installation scripts ----------------- ###
 # Run by run_dotfile_scripts in bootstrap.sh
 # Scripts must be executable (chmod +x)

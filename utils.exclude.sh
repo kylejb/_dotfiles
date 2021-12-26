@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Utility functions that the other dotfile related scripts will use
 

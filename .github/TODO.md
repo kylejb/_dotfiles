@@ -6,8 +6,6 @@
 
 - [ ] Refactor/standardize installation scripts, aliases, and other shell scripts/functions for maintainability and useability across various platforms.
 
-- [ ] Consider alternatives to `oh-my-zsh` (e.g., rolling your own `.zshrc`).
-
 ### Windows Setup
 
 - [ ] Identify config location for Windows Terminal and update install script.

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # source: https://github.com/jthegedus/dotfiles/blob/main/scripts/setup-devtools.bash
 
 set -eo pipefail

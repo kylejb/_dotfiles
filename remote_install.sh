@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 SOURCE="https://github.com/kylejb/dotfiles"
 TARBALL="$SOURCE/tarball/main"
 TARGET="$HOME/.dotfiles"
-TAR_CMD="tar -xzv -C "$TARGET" --strip-components=1 --exclude='{.gitignore}'"
+TAR_CMD="tar -xzv -C "$TARGET" --strip-components=1 --exclude='{.github,LICENSE}'"
 
 is_executable() {
   type "$1" > /dev/null 2>&1

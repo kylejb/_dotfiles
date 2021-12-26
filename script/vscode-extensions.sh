@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 ### ---------------------- Install VSCode extensions ---------------------- ###
 # CLI: https://code.visualstudio.com/docs/editor/extension-gallery
 
