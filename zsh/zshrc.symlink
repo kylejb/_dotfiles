@@ -1,5 +1,3 @@
-source .zprofile
-
 
 # Directory
 setopt auto_pushd
@@ -58,9 +56,15 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
 # ... unless we really want to.
 zstyle '*' single-ignored show
 
+fpath=(~/.zsh/completion $fpath)
+
+autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
+complete -C '$(which aws_completer)' aws
 
 ## User Paths
+
+  export PYTHONPATH="$PYTHONPATH:."
   # Add pipx install location to User Path
   export HOME_PATHS="$HOME/.local/bin"
   # Build our final PATH by combining the variables defined above
@@ -78,10 +82,3 @@ eval "$(starship init zsh)"
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-## Plugin support for Linux
-# source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-## Enables local changes – must be last line
-[ -f ".zshrc.local" ] && source ".zshrc.local"

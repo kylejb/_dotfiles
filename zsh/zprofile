@@ -3,8 +3,10 @@ source "$HOME/.exports"
 source "$HOME/.functions"
 source "$HOME/.aliases"
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
 ## Postgres
 # export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
-
-## Enables local changes – must be last line
-[ -f ".zprofile.local" ] && source ".zprofile.local"
